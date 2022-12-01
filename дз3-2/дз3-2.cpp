@@ -1,4 +1,4 @@
-﻿/*TextFile19 Дан текстовый файл. В первой строке записано число N,
+/*TextFile19 Дан текстовый файл. В первой строке записано число N,
 а во второй строке последовательность из N целых чисел, разделенных
 пробелами. Определить, правда ли, что все числа состоят из одинакового
 количества цифр*/
@@ -23,13 +23,19 @@ int main()
     else
     {
         f >> n;
-        int len = 0;
-        for (int i = 0; i < n; i++)
+        string len = "";
+        f >> len; 
+        string numb;
+        for (int i = 0; i < n-1; i++)
         {
-            string numb; 
             f >> numb;
-            answer = len == numb.length();
-            len = numb.length();
+            int a = len.size();
+            int b = numb.size();
+            answer = a == b;
+            if (!answer)
+                break;
+            len = numb;
+            numb = " ";
         }
     }
     cout << answer;
@@ -44,5 +50,17 @@ true
 /*
 3
 123 124 1222
+false
+*/
+
+/*
+* 3
+122 122 123
+true
+*/
+
+/*
+3
+1222 122 123
 false
 */
